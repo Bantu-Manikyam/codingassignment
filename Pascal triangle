@@ -1,0 +1,25 @@
+def generate_pascals_triangle(num_rows):
+    if num_rows == 0:
+        return []
+
+    triangle = [[1]]
+
+    for i in range(1, num_rows):
+        prev_row = triangle[i - 1]
+        current_row = [1]
+
+        for j in range(1, i):
+            current_row.append(prev_row[j - 1] + prev_row[j])
+
+        current_row.append(1)
+        triangle.append(current_row)
+
+    return triangle
+
+
+num_rows = int(input("Enter the number of rows for Pascal's Triangle: "))
+result = generate_pascals_triangle(num_rows)
+
+# Print the generated Pascal's Triangle
+for row in result:
+    print(row)
