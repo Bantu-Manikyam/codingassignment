@@ -1,0 +1,18 @@
+def calculate_probability():
+    # Probability of all ants moving in the same direction
+    probability_same_direction = 1/2 * 1/2 * 1/2
+
+    # Probability of each ant moving in the opposite direction
+    probability_opposite_direction = 1/2 * 1/2 * 1/2
+
+    # Total probability of not colliding
+    total_probability = probability_same_direction + probability_opposite_direction
+
+    # Round off to 2 decimal places
+    rounded_probability = round(total_probability, 2)
+
+    return rounded_probability
+
+# Calculate and print the probability
+result = calculate_probability()
+print("Probability:", result)
