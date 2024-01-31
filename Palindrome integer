@@ -1,0 +1,21 @@
+def is_palindrome(x):
+    
+    if x < 0:
+        return 0
+
+    original_x = x
+    reversed_x = 0
+
+    while x > 0:
+        digit = x % 10
+        reversed_x = reversed_x * 10 + digit
+        x //= 10
+
+    return 1 if original_x == reversed_x else 0
+
+
+integer_input = int(input())
+
+
+result = is_palindrome(integer_input)
+print("Output:", result)
