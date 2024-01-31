@@ -1,0 +1,48 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def getIntersectionNode(headA, headB):
+    def get_length(node):
+        length = 0
+        while node:
+            length += 1
+            node = node.next
+        return length
+    
+    lenA, lenB = get_length(headA), get_length(headB)
+    
+    # Adjust the starting point of the longer list
+    while lenA > lenB:
+        headA = headA.next
+        lenA -= 1
+    
+    while lenB > lenA:
+        headB = headB.next
+        lenB -= 1
+    
+    # Traverse both lists until the intersection point is found
+    while headA and headB:
+        if headA == headB:
+            return headA
+        headA = headA.next
+        headB = headB.next
+    
+    return None
+
+
+# Create linked lists A, B, and C with an intersection at node C1
+A = ListNode(1, ListNode(2))
+B = ListNode(3, ListNode(4, ListNode(5)))
+C = ListNode(6, ListNode(7, ListNode(8)))
+
+A.next.next = C
+B.next.next.next = C
+
+intersection_node = getIntersectionNode(A, B)
+
+if intersection_node:
+    print("Intersection Node Value:", intersection_node.value)
+else:
+    print("No intersection.")
