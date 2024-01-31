@@ -1,0 +1,21 @@
+def plus_one(digits):
+    carry = 1  
+    result = []
+
+    for i in range(len(digits) - 1, -1, -1):
+        current_sum = digits[i] + carry
+        result.insert(0, current_sum % 10)  
+        carry = current_sum // 10  # Update the carry
+
+
+    if carry:
+        result.insert(0, carry)
+
+    return result
+
+
+input_digits = list(map(int, input().split()))
+
+
+output_digits = plus_one(input_digits)
+print("Output:", output_digits)
