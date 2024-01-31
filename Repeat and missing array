@@ -1,0 +1,42 @@
+def repeatedNumber(A):
+    n = len(A)
+    xor_result = 0
+
+   
+    for i in range(1, n + 1):
+        xor_result ^= i
+        xor_result ^= A[i - 1]
+
+   
+    rightmost_set_bit = xor_result & -xor_result
+
+   
+    missing_number = 0
+    repeated_number = 0
+
+   
+    for i in range(1, n + 1):
+        if (i & rightmost_set_bit) != 0:
+            missing_number ^= i
+        else:
+            repeated_number ^= i
+
+        if (A[i - 1] & rightmost_set_bit) != 0:
+            missing_number ^= A[i - 1]
+        else:
+            repeated_number ^= A[i - 1]
+
+    
+    for num in A:
+        if num == repeated_number:
+            return [repeated_number, missing_number]
+
+    return [missing_number, repeated_number]
+
+
+try:
+    input_array = list(map(int, input("Enter the array elements separated by space: ").split()))
+    result = repeatedNumber(input_array)
+    print(f"The repeated and missing numbers are: {result}")
+except ValueError:
+    print("Please enter valid integers separated by space.")
