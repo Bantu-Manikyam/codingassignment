@@ -1,0 +1,19 @@
+def climbStairs(A):
+    if A == 0 or A == 1:
+        return 1
+
+    dp = [0] * (A + 1)
+    dp[0], dp[1] = 1, 1
+
+    for i in range(2, A + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+
+    return dp[A]
+
+# Example usage:
+try:
+    A = int(input("Enter the number of steps (A): "))
+    result = climbStairs(A)
+    print(f"The number of distinct ways to climb {A} steps is: {result}")
+except ValueError:
+    print("Please enter a valid integer.")
