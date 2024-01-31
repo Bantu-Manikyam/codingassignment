@@ -1,0 +1,18 @@
+def is_prime(N):
+    if N <= 1:
+        return False
+    elif N == 2:
+        return True
+    elif N % 2 == 0:
+        return False
+    else:
+       for i in range(3, int(N**0.5) + 1, 2):
+            if N % i == 0:
+                return False
+        return True
+
+
+number = int(input(" "))
+result = is_prime(number)
+
+print("Output:", result)
