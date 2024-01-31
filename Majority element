@@ -1,0 +1,26 @@
+def majority_element(nums):
+    candidate = None
+    count = 0
+
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += 1 if num == candidate else -1
+
+    
+    count = nums.count(candidate)
+    if count > len(nums) // 2:
+        return candidate
+    else:
+        return None
+
+
+input_array = list(map(int, input("Enter the array elements separated by space: ").split()))
+
+
+result = majority_element(input_array)
+
+if result is not None:
+    print("Majority Element:", result)
+else:
+    print("No majority element found.")
