@@ -1,0 +1,14 @@
+def convert_to_title(A):
+    result = ""
+    
+    while A > 0:
+        remainder = (A - 1) % 26
+        result = chr(ord('A') + remainder) + result
+        A = (A - 1) // 26
+    
+    return result
+
+
+A = int(input("Enter a positive integer: "))
+output = convert_to_title(A)
+print("Output:", output)
