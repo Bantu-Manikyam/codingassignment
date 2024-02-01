@@ -1,0 +1,29 @@
+def removeDuplicates(A):
+    if not A:
+        return 0
+
+    n = len(A)
+    if n == 1:
+        return 1
+
+    # Initialize two pointers
+    i, j = 0, 1
+
+    while j < n:
+        # If the elements at pointers i and j are different, update A[i+1] and move both pointers
+        if A[i] != A[j]:
+            A[i + 1] = A[j]
+            i += 1
+
+        # Move the second pointer to the next element
+        j += 1
+
+    # The final length of the modified array is i+1
+    return i + 1
+
+# Example usage:
+A1 = [1, 1, 2]
+print(removeDuplicates(A1))  # Output: 2
+
+A2 = [1, 2, 2, 3, 3]
+print(removeDuplicates(A2))  # Output: 3
