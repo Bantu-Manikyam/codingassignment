@@ -1,0 +1,24 @@
+def removeDuplicates(A):
+    n = len(A)
+    
+    # Base case: if the array has less than or equal to 2 elements, no duplicates to remove
+    if n <= 2:
+        return n
+    
+    # Initialize two pointers
+    i = 2
+    
+    for j in range(2, n):
+        # If the current element is different from the two elements before it, update A[i] and move the first pointer
+        if A[j] != A[i - 2]:
+            A[i] = A[j]
+            i += 1
+    
+    # The final length of the modified array is i
+    return i
+
+# Example usage:
+A = [1, 1, 1, 2]
+new_length = removeDuplicates(A)
+print("New Length:", new_length)  # Output: 3
+print("Modified Array:", A[:new_length])  # Output: [1, 1, 2]
