@@ -1,0 +1,14 @@
+def findSingle(A):
+    result = 0
+
+    for num in A:
+        result ^= num
+
+    return result
+
+# Example usage:
+A1 = [1, 2, 2, 3, 1]
+print(findSingle(A1))  # Output: 3
+
+A2 = [1, 2, 2]
+print(findSingle(A2))  # Output: 1
