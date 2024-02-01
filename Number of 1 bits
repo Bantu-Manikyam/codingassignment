@@ -1,0 +1,10 @@
+def countSetBits(A):
+    count = 0
+    
+    while A > 0:
+        # Increment count if the rightmost bit is 1
+        count += A & 1
+        # Right shift the number by 1
+        A >>= 1
+    
+    return count
