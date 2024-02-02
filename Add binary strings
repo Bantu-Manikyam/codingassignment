@@ -1,0 +1,29 @@
+def add_binary(a, b):
+    # Initialize variables to store the result and carry
+    result = ""
+    carry = 0
+    
+    # Make both binary strings the same length by adding leading zeros
+    a = a.zfill(max(len(a), len(b)))
+    b = b.zfill(max(len(a), len(b)))
+    
+    # Iterate through the binary strings from right to left
+    for i in range(len(a) - 1, -1, -1):
+        # Calculate the sum of the current bits and the carry
+        bit_sum = int(a[i]) + int(b[i]) + carry
+        
+        # Determine the current bit and update the carry
+        result = str(bit_sum % 2) + result
+        carry = bit_sum // 2
+    
+    # If there is a carry left, add it to the leftmost position
+    if carry:
+        result = "1" + result
+    
+    return result
+
+# Example
+a = "100"
+b = "11"
+result = add_binary(a, b)
+print(result)
