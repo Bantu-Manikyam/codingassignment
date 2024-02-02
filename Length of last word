@@ -1,0 +1,26 @@
+def length_of_last_word(s):
+    # Initialize a variable to store the length of the last word
+    last_word_length = 0
+
+    # Flag to check if we are currently in the last word
+    in_last_word = False
+
+    # Iterate through the string from right to left
+    for char in reversed(s):
+        # Check if the character is a space
+        if char == ' ':
+            # If we were in the last word, break the loop
+            if in_last_word:
+                break
+        else:
+            # If the character is not a space, increment the last_word_length
+            last_word_length += 1
+            # Set the flag to indicate we are in the last word
+            in_last_word = True
+
+    return last_word_length
+
+# Example
+s = "Hello World"
+result = length_of_last_word(s)
+print(result)
