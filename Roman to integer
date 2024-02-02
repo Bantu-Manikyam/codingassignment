@@ -1,0 +1,19 @@
+def roman_to_integer(A):
+    # Define a dictionary to map Roman numeral symbols to their integer values
+    roman_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+                    'C': 100, 'D': 500, 'M': 1000}
+
+    # Initialize the result to store the integer value
+    result = 0
+
+    # Iterate through the Roman numeral string from left to right
+    for i in range(len(A)):
+        # Check if the current symbol is smaller than the next symbol
+        if i < len(A) - 1 and roman_values[A[i]] < roman_values[A[i + 1]]:
+            # If true, subtract the current symbol's value
+            result -= roman_values[A[i]]
+        else:
+            # Otherwise, add the current symbol's value
+            result += roman_values[A[i]]
+
+    return result
