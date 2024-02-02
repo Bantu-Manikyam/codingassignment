@@ -1,0 +1,22 @@
+def longest_common_prefix(A):
+    # If the array is empty, there is no common prefix
+    if not A:
+        return ""
+
+    # Sort the array to group the strings with similar prefixes together
+    A.sort()
+
+    # Consider the first and last strings after sorting
+    first_str = A[0]
+    last_str = A[-1]
+
+    # Find the length of the common prefix between the first and last strings
+    common_prefix_length = 0
+    for i in range(min(len(first_str), len(last_str))):
+        if first_str[i] == last_str[i]:
+            common_prefix_length += 1
+        else:
+            break
+
+    # Return the common prefix
+    return first_str[:common_prefix_length]
