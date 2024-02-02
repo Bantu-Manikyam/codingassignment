@@ -1,0 +1,11 @@
+def reverse_words(A):
+    # Split the input string into words
+    words = A.split()
+
+    # Reverse the order of words
+    reversed_words = words[::-1]
+
+    # Join the reversed words into a string with single spaces
+    reversed_string = ' '.join(reversed_words)
+
+    return reversed_string
